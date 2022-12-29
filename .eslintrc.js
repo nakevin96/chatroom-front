@@ -16,7 +16,7 @@ module.exports = {
     sourceType: 'module',
     requireConfigFile: false,
   },
-  plugins: ['react'],
+  plugins: ['react', '@typescript-eslint', 'prettier'],
   settings: {
     'import/resolver': {
       node: {
@@ -34,10 +34,13 @@ module.exports = {
     ],
     'react/no-unstable-nested-components': 'off', // 컴포넌트 분리
     camelcase: 'off',
+    'linebreak-style': 0,
     'react/function-component-definition': 'off',
     'no-use-before-define': 'off',
     'no-shadow': 'off',
+    'no-unused-vars': 'off',
     'no-useless-escape': 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
     'prettier/prettier': [
       'error',
       {
@@ -47,17 +50,16 @@ module.exports = {
         printWidth: 80,
         singleQuote: true,
         useTabs: false,
+        endOfLine: 'auto',
       },
     ],
-    // include: ['src'],
-    // exclude: ['node_modules/**', 'build/**', 'coverage/**'],
 
     'react/jsx-props-no-spreading': 'off',
     'react/jsx-curly-newline': 'off',
     'no-console': 'off',
     indent: 'off', // tab 공백 에러,
     'implicit-arrow-linebreak': 0,
-    'import/no-unresolved': [2, { caseSensitive: false }], // import 절대경 지정 문제('https://xxxxersuy.com/19'),
+    'import/no-unresolved': 'off', // import 절대경 지정 문제('https://xxxxersuy.com/19'),
     'operator-linebreak': 0,
     'react/prop-types': ['off'], // https://forhjy.medium.com/react-solution-for-children-is-missing-in-props-validation-eslint-react-prop-types-2e11bc6043c7,
     'object-curly-newline': 0, // https://runebook.dev/ko/docs/eslint/rules/object-curly-newline,
@@ -74,6 +76,7 @@ module.exports = {
         ],
       },
     ],
+    'react/react-in-jsx-scope': 0,
     'react/jsx-curly-brace-presence': 0,
     'react/jsx-filename-extension': [
       2,
@@ -95,7 +98,6 @@ module.exports = {
         track: ['Track'],
       },
     ],
-    'no-unused-vars': 'off',
     'react/jsx-one-expression-per-line': 'off',
     'react/jsx-wrap-multilines': [
       'error',
