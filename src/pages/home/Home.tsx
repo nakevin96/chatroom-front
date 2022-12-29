@@ -1,18 +1,21 @@
 import styled from 'styled-components';
 import { Navbar } from '../../components/navbar';
 import { SideInfo } from '../../components/side-info';
-import { MAIN_COLOR_LIGHT } from '../../assets/colors';
+import { MAIN_COLOR_BASE } from '../../assets/colors';
 
 const HomeDiv = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 100vh;
-  background-color: ${MAIN_COLOR_LIGHT};
+  background-color: ${MAIN_COLOR_BASE};
   display: flex;
   flex-direction: row; ;
 `;
 
 const ContentsDiv = styled.div`
+  background-color: ${MAIN_COLOR_BASE};
+  padding: 0.5rem 1rem;
   width: 100%;
+  height: auto;
   flex-shrink: 1;
 `;
 
