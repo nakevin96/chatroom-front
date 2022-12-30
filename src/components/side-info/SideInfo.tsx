@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { DefaultP } from '../../assets/styles';
 import { MAIN_COLOR_DARK } from '../../assets/colors';
 
 const SideInfoNav = styled.nav`
@@ -15,7 +16,7 @@ export default function SideInfo() {
 
   return (
     <SideInfoNav>
-      <p>{tmpString}</p>
+      <DefaultP>{tmpString}</DefaultP>
     </SideInfoNav>
   );
 }

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { DefaultBoldP } from '../../../assets/styles';
 import { MAIN_COLOR_DARK } from '../../../assets/colors';
 
 const DetailNav = styled.nav`
@@ -15,7 +16,7 @@ export default function NavDetail() {
 
   return (
     <DetailNav>
-      <p>{tmpString}</p>
+      <DefaultBoldP>{tmpString}</DefaultBoldP>
     </DetailNav>
   );
 }

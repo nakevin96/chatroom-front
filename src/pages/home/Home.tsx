@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Navbar } from '../../components/navbar';
 import { SideInfo } from '../../components/side-info';
+import { DefaultP } from '../../assets/styles';
 import { MAIN_COLOR_BASE } from '../../assets/colors';
 
 const HomeDiv = styled.div`
@@ -24,7 +25,9 @@ export default function Home() {
   return (
     <HomeDiv>
       <Navbar />
-      <ContentsDiv>{tmpContent}</ContentsDiv>
+      <ContentsDiv>
+        <DefaultP>{tmpContent}</DefaultP>
+      </ContentsDiv>
       <SideInfo />
     </HomeDiv>
   );

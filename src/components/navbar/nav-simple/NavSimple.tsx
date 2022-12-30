@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { DefaultP } from '../../../assets/styles';
 import { MAIN_COLOR_BASE } from '../../../assets/colors';
 
 const SimpleNav = styled.nav`
@@ -30,7 +31,7 @@ export default function NavSimple() {
 
   return (
     <SimpleNav>
-      <p>{tmpString}</p>
+      <DefaultP>{tmpString}</DefaultP>
     </SimpleNav>
   );
 }
