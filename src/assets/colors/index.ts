@@ -7,10 +7,15 @@ const COLOR_1A1A22: Property.Color = '#1A1A22';
 const COLOR_18181B: Property.Color = '#18181B';
 const COLOR_141415: Property.Color = '#141415';
 const COLOR_2D2D44: Property.Color = '#2d2d44';
+const COLOR_36393F: Property.Color = '#36393F';
+const COLOR_E9A825: Property.Color = '#E9A825';
+const COLOR_895B4A: Property.Color = '#895B4A';
 
 // color definition
 
 export const TEXT_FIELD_COLOR = COLOR_1A1A22;
 export const MAIN_COLOR_BASE = COLOR_18181B;
 export const MAIN_COLOR_DARK = COLOR_141415;
-export const THEME_COLOR = COLOR_2D2D44;
+export const LOGIN_THEME_COLOR = COLOR_36393F;
+export const THEME_COLOR = COLOR_E9A825;
+export const THEME_DARK_COLOR = COLOR_895B4A;
