@@ -1,10 +1,9 @@
-import { ChangeEvent, useRef, useState } from 'react';
+import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import {
   MAIN_COLOR_BASE,
   TEXT_FIELD_DISABLED_COLOR,
 } from '../../../assets/colors';
-import { DefaultP } from '../../../assets/styles';
 
 const ContentsTextDiv = styled.div`
   background-color: ${MAIN_COLOR_BASE};
@@ -18,10 +17,10 @@ const ContentsTextDiv = styled.div`
   margin: 1.5rem 1rem;
 `;
 
-const ContentsTextArea = styled.textarea`
-  height: 2rem;
+const ChatInputDiv = styled.div`
+  height: 2.3rem;
   background-color: ${TEXT_FIELD_DISABLED_COLOR};
-  padding: 0.6rem 1rem 0.1rem 1rem;
+  padding: 0.5rem 1rem;
   border: none;
   border-radius: 0.5rem;
   outline: none;
@@ -30,47 +29,67 @@ const ContentsTextArea = styled.textarea`
   font-size: 1rem;
   font-weight: normal;
   color: white;
+  display: flex;
+  align-items: center;
 
   &:focus {
     background-color: #282c34;
   }
 `;
 
-export default function HomeContentsText() {
-  const [message, setMessage] = useState<string>('');
-  const textAreaRef = useRef<HTMLTextAreaElement>(null);
+const ChatLogSection = styled.section`
+  width: 100%;
+  height: 100%;
+  background-color: ${MAIN_COLOR_BASE};
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+  color: white;
+`;
 
-  const handleMessageChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    setMessage(event.target.value);
-    console.log(event.target.value);
+export default function HomeContentsText() {
+  const $contentEditable = useRef<HTMLDivElement | null>(null);
+  const [content, _setContent] = useState<string>('');
+
+  const onInput = (event: ChangeEvent<HTMLDivElement>) => {
+    _setContent(event.target.innerText);
   };
 
-  const handleResizeHeight = () => {
-    if (textAreaRef.current != null) {
-      textAreaRef.current.style.height = '0px';
-      console.log(textAreaRef.current.scrollHeight);
-      textAreaRef.current.style.height = `${
-        textAreaRef.current.scrollHeight / 16
+  const setContent = (newContent: string) => {
+    if ($contentEditable.current) {
+      $contentEditable.current.innerText = newContent;
+      _setContent(newContent);
+    }
+  };
+
+  const handleResizeChange = () => {
+    if ($contentEditable.current) {
+      $contentEditable.current.style.height = 'auto';
+      $contentEditable.current.style.height = `${
+        $contentEditable.current.scrollHeight / 16
       }rem`;
     }
   };
 
-  const handleTextAreaChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    handleMessageChange(event);
-    handleResizeHeight();
+  const handleInputChange = (event: ChangeEvent<HTMLDivElement>) => {
+    handleResizeChange();
+    onInput(event);
   };
+
+  useEffect(() => {
+    setContent('');
+  }, []);
+
   return (
     <ContentsTextDiv>
-      {/*<ContentsTextArea*/}
-      {/*  id="message"*/}
-      {/*  name="message"*/}
-      {/*  value={message}*/}
-      {/*  ref={textAreaRef}*/}
-      {/*  rows={1}*/}
-      {/*  onChange={handleTextAreaChange}*/}
-      {/*  placeholder="메세지 보내기"*/}
-      {/*/>*/}
-      <div contentEditable suppressContentEditableWarning />
+      <ChatLogSection>Chat log</ChatLogSection>
+      <ChatInputDiv
+        contentEditable
+        suppressContentEditableWarning
+        placeholder="메세지를 입력해주세요"
+        ref={$contentEditable}
+        onInput={handleInputChange}
+      />
     </ContentsTextDiv>
   );
 }
