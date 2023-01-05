@@ -10,6 +10,7 @@ const COLOR_2D2D44: Property.Color = '#2d2d44';
 const COLOR_36393F: Property.Color = '#36393F';
 const COLOR_E9A825: Property.Color = '#E9A825';
 const COLOR_895B4A: Property.Color = '#895B4A';
+const COLOR_3D3D40: Property.Color = '#3D3D40';
 
 // color definition
 
@@ -19,3 +20,4 @@ export const MAIN_COLOR_DARK = COLOR_141415;
 export const LOGIN_THEME_COLOR = COLOR_36393F;
 export const THEME_COLOR = COLOR_E9A825;
 export const THEME_DARK_COLOR = COLOR_895B4A;
+export const TEXT_FIELD_DISABLED_COLOR = COLOR_3D3D40;
